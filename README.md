@@ -1,2 +1,2 @@
-# NextBusAPI
-RESTful sf-muni NextBus Web-Proxy 
+# sfmuni
+SF-Muni 
