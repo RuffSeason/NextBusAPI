@@ -12,7 +12,7 @@
 #	http://flask.pocoo.org/docs/0.11/config/#builtin-configuration-values
 [flask]
 proto = http://
-host = localhost
+host = 0.0.0.0
 port = 8889
 thread = False
 
@@ -30,12 +30,11 @@ limit = 1
 compression = 3
 
 [slow_queries]
-threshold = .5
+threshold = .1
 hostname = macosx
 
 [redis]
-#host = redis
-host = 0.0.0.0
+host = redis
 port = 6379
 
 [logging]
