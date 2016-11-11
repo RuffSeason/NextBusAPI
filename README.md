@@ -1,11 +1,11 @@
 # NextBus RESTful API
 
-### Installation 
+### Installation
 
 To run as a docker container cd into the directory which you pulled the repo into and:
 ```sh
-$ docker-compose build 
-$ docker-compose -d up 
+$ docker-compose build
+$ docker-compose -d up
 ```
 
 To run as a native application without docker, cd into the project directory
@@ -13,7 +13,7 @@ To run as a native application without docker, cd into the project directory
 $ export PYTHON_PATH=./extenstions/
 $ pip install -r requirements.txt
 ```
-To initialize the server 
+To initialize the server
 ```sh
 $ python server.py
 ```
@@ -22,7 +22,7 @@ Or using gunicorn you for concurrency (adjusting -w parameter)
 $ gunicorn server:app -k gevent -w 4
 ```
 
-### Configuration
+## Configuration
 ```
 /config.py
 ```
@@ -34,10 +34,31 @@ slow_queries - adjust the time (ms) threshold that defines a slow_query, if a gi
 redis - adjust the redis hostname and listening ports
 logging - adjust the output directory and path
 
-### Endpoints
+## Endpoints
 Endpoints and brief descriptions can be listed via the /endpoints endpoint
 ```sh
 $ curl http://localhost:8889/endpoints
 ```
 Each object contains the actual endpoint name, endpoint rule (url structure), and description.
 
+#### routes_list  
+`/routes` : Provides a list off all the NextBus routes by name and tag.
+- verbose = true,false
+- terse = true,false
+
+#### routes_config 
+`/routes/<routeTag>`: Provides more detailed configuration info for a given routeTag, including stopId, stopTag, 
+- verbose = true,false
+- terse = true,false
+
+#### routes_messages
+`/routes` : Provides a list off all the NextBus routes by name and tag, use `r` key in query string to specify route tag.
+- r = for one routeTag ~ r=N_OWL
+- r[] = for multiple routeTags, seperated by a comma ~ r[]=N_OWL,45,61
+- verbose = true,false
+- terse = true,false
+
+#### routes_schedule
+`/routes/<routeTag>/schedule` : Returns the routes' timetable, grouped into direction, and schedule class groups. 
+- verbose = true,false
+- terse = true,false
