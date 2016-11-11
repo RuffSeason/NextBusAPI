@@ -34,9 +34,9 @@ threshold = .5
 hostname = macosx
 
 [redis]
-host = redis
+#host = redis
+host = 0.0.0.0
 port = 6379
-
 
 [logging]
 log_path = /var/log/
