@@ -1,9 +1,25 @@
 # NextBus RESTful API
 
-### Installation
+### Installation 
+
+To run as a docker container cd into the directory which you pulled the repo into and:
 ```sh
 $ docker-compose build 
 $ docker-compose -d up 
+```
+
+To run as a native application without docker, cd into the project directory
+```sh
+$ export PYTHON_PATH=./extenstions/
+$ pip install -r requirements.txt
+```
+To initialize the server 
+```sh
+$ python server.py
+```
+Or using gunicorn you for concurrency (adjusting -w parameter)
+```sh
+$ gunicorn server:app -k gevent -w 4
 ```
 
 ### Configuration
@@ -24,3 +40,4 @@ Endpoints and brief descriptions can be listed via the /endpoints endpoint
 $ curl http://localhost:8889/endpoints
 ```
 Each object contains the actual endpoint name, endpoint rule (url structure), and description.
+
