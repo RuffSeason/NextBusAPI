@@ -213,5 +213,5 @@ def stats_slowqueries():
     return jsonify(stats.get_slow_queries(row_limit=row_limit))
 
 if __name__ == '__main__':
-    app.run(host=HOST, threaded=THREAD)
+    app.run(host=HOST, port=int(PORT))
 
