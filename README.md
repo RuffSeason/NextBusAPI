@@ -55,8 +55,12 @@ Each object contains the actual endpoint name, endpoint rule (url structure), an
 `/routes` : Provides a list off all the NextBus routes by name and tag, use `r` key in query string to specify route tag.
 - `r` = for one routeTag: `r=N_OWL`
 - `r[]` = for multiple routeTags, seperated by a comma: `r[]=N_OWL,45,61`
+```sh
+$ curl "http://127.0.0.1:8889/routes/messages?r\[\]=T_OWL,61"
+```
 - `verbose` = true,false
 - `terse` = true,false
+
 
 #### routes_schedule
 `/routes/<routeTag>/schedule` : Returns the routes' timetable, grouped into direction, and schedule class groups. 
