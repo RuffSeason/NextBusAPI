@@ -19,7 +19,7 @@ RLIMIT_TIME = int(cfg.get('rate-limiter','time'))
 RLIMIT_LIMIT = int(cfg.get('rate-limiter','limit'))
 
 from redis import Redis
-redis = Redis(host=REDIS_HOST, port=int(REDIS_PORT))
+redis = Redis(host='redis')
 
 def cache_key(prefix, delim, suffix=None):
     if suffix:

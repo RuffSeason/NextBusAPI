@@ -30,8 +30,8 @@ limit = 1
 compression = 3
 
 [slow_queries]
-threshold = .1
-hostname = macosx
+threshold = .2
+hostname = ubuntu
 
 [redis]
 host = redis
